@@ -222,13 +222,13 @@ namespace lab3
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != 8 && e.KeyChar != 44 && (e.KeyChar < 48 || e.KeyChar > 57))
+            if (e.KeyChar != 8 && e.KeyChar != 44 && e.KeyChar != 45 && (e.KeyChar < 48 || e.KeyChar > 57))
                 e.Handled = true;
         }
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar != 8 && e.KeyChar != 44 && ( e.KeyChar < 48 || e.KeyChar > 57))
+            if (e.KeyChar != 8 && e.KeyChar != 44 && e.KeyChar != 45 && ( e.KeyChar < 48 || e.KeyChar > 57))
                 e.Handled = true;
         }
 

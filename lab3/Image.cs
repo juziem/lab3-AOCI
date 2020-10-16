@@ -44,9 +44,10 @@ namespace lab3
             for (int x = 0; x < sourceImage.Width; x++)
                 for (int y = 0; y < sourceImage.Height; y++)
                 {
-                    newX = (x + sh * (sourceImage.Height - y));
+                    newX = (x - sh * (sourceImage.Height - y));
+                    newY = y;
 
-                    if (newX >= sourceImage.Width) continue;
+                    if (newX >= sourceImage.Width || newX < 0) continue;
 
                     scaledImage[y, x] = sourceImage[y, (int)newX];
                 }
@@ -62,13 +63,13 @@ namespace lab3
             double newX = 0;
             double newY = 0;
 
-            //double angleRadians = a * Math.PI / 180d;
+            double angleRadians = a * Math.PI / 180d;
 
             for (int x = 0; x < scaledImage.Width; x++)
                 for (int y = 0; y < scaledImage.Height; y++)
                 {
-                    newX = Math.Abs(Math.Cos(a) * (x - scaledImage.Width / 2) - Math.Sin(a) * (y - scaledImage.Height / 2) + scaledImage.Width / 2);
-                    newY = Math.Abs(Math.Sin(a) * (x - scaledImage.Width / 2) + Math.Cos(a) * (y - scaledImage.Height / 2) + scaledImage.Height / 2);
+                    newX = Math.Abs(Math.Cos(angleRadians) * (x - scaledImage.Width / 2) - Math.Sin(angleRadians) * (y - scaledImage.Height / 2) + scaledImage.Width / 2);
+                    newY = Math.Abs(Math.Sin(angleRadians) * (x - scaledImage.Width / 2) + Math.Cos(angleRadians) * (y - scaledImage.Height / 2) + scaledImage.Height / 2);
 
                     if (newX >= sourceImage.Width || newY>= sourceImage.Height) continue;
 
